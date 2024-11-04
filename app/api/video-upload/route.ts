@@ -24,7 +24,14 @@ export async function POST(request: NextRequest) {
 
 
     try {
-
+const {userId} =  auth()
+if( !userId ){
+    return NextResponse.json({
+        "message":"not authorized"
+    },{
+        status:401
+    })
+}
         //todo to check user
 
     if(
